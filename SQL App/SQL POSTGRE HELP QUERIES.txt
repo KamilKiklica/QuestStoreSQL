@@ -1,0 +1,55 @@
+postgressql-setup --initdb <-- init db in default directory 
+createdb -D /home/bq/wor.... <--- init db in specyfik directory
+
+https://www.postgresql.org/docs/6.3/c0702.htm
+
+sudo -u postgres psql
+
+sudo -i -u postgres <--- log into postgres bash terminal
+psql <--- run postgreSql terminal 
+
+from psql:
+postgres-# \password postgres
+
+
+show data_directory;
+
+
+
+
+
+
+ALTER ROLE postgres WITH PASSWORD 'new_password_for_postgres';  <--- set pass to postgres user
+ALTER USER codecool WITH PASSWORD 'new_password_for_postgres';
+createuser --interactive  <--- create new user
+createdb codecooler
+\password user
+
+
+
+\l <-- list data bases
+\du <-- list users
+\dt <--- list tabels
+\d+ tabele <--- list data types 
+\c database <--- switch to database
+
+
+"/var/lib/pgsql/data/pg_hba.conf"
+https://stackoverflow.com/questions/2942485/psql-fatal-ident-authentication-failed-for-user-postgres
+
+ DELETE FROM mentors;
+ ALTER table mentors alter COLUMN phone_number type text;  <--- change column type
+ DROP TABLE [IF EXISTS] table_name CASCADE;   <--- Drop a table and its dependent objects:
+ DROP DATABASE 
+ copy mentors(first_name, last_name, nick_name, phone_number, email, city, favourite_number) from '/var/lib/pgsql/mentors.csv' delimiter ',';
+ copy mentors (first_name, last_name, nick_name, phone_number, email, city, favourite_number) from '/var/lib/pgsql/mentors.csv' with csv DELIMITER ',' NULL '' quote E'''
+ 
+ pg_dump -U user -W -F p dataBase > db.sql 
+ psql dataBase < db.sql
+ 
+ /var/lib/pgsql
+
+copy mentors (first_name, last_name, nick_name, phone_number, email, city, favourite_number) from '/home/kamkik/codecool/KOD/WEB/SI_3/SQL App/mentors.csv' with csv DELIMITER ',' NULL AS 'NULL' QUOTE '''';
+
+
+

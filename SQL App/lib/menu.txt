@@ -1,0 +1,21 @@
+1. Return first name and last name of the mentors table.
+2. Return the nickname-s of all mentors working at Miskolc.
+3. Find full name of Carol and her phone number.
+4. Find full name of some girl and her phone number by e-mail domain '@adipiscingenimmi.edu'.
+5. Add new Applicant:
+
+First Name:         Markus,
+Last Name:          Schaffarzyk,
+PhoneNumber:        003620/725-2666,
+e-mail:             djnovus@groovecoverage.com,
+application code:   54823.
+
+6. Return Markus Schaffarzyk all data by his application code.
+7. Update Jemima Foreman phone number to 003670/223-7459.
+8. Check the phone number of Jemima Foreman.
+9. Delete Arsenio with his friend from database by theirs e-mail domain: mauriseu.net.
+10. Delete all data from Mentors and applicants table.
+11. Add Mentors and Applicants data to database from CSV files.
+12. Advanced search feature.
+
+
