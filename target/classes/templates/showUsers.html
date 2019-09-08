@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cities</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<h2>List of users</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Nick Name</th>
+        <th>Password</th>
+        <th>Photo URL</th>
+        <th>Access Rights</th>
+        <th>User Level</th>
+        <th>Date Stamp</th>
+    </tr>
+
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.nickName}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.photoURL}"></td>
+        <td th:text="${user.accessRights}"></td>
+        <td th:text="${user.userLevel}"></td>
+        <td th:text="${user.dateStamp}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
