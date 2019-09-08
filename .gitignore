@@ -18,6 +18,8 @@ target/
 *.iws
 *.iml
 *.ipr
+.idea/vcs.xml
+
 
 ### NetBeans ###
 /nbproject/private/
@@ -28,4 +30,9 @@ target/
 build/
 
 ### VS Code ###
-.vscode/
+#.vscode/
+#src/main/java/com/kam/prze/woj/queststore/model/
+#src/main/java/com/kam/prze/woj/queststore/repository/
+#src/main/java/com/kam/prze/woj/queststore/service/
+#src/main/resources/static/
+#src/main/resources/templates/
