@@ -1,0 +1,11 @@
+1. Create Codecooler.
+2. Edit Codecooler.
+3. Create New Quest.
+4. Update Quest.
+5. Create New Item.
+6. Update Item.
+7. Set Item for group transaction.
+8. Approve Codecooler Quest.
+9. Approve Bought Artifacts.
+10. Show All Codecoolers Wallets.
+0. Log out.
