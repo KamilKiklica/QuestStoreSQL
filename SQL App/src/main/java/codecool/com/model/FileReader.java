@@ -11,7 +11,7 @@ public class FileReader {
         List<String> lines = new ArrayList<>();
 
         try{
-            File file = new File("lib/"+ menuName);
+            File file = new File("lib/"+ menuName+".txt");
 
 
             Scanner input = new Scanner(file);
