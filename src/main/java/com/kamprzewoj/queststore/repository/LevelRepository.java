@@ -9,7 +9,7 @@ import org.springframework.data.rest.webmvc.RepositoryRestController;
 import java.util.Optional;
 
 @Qualifier("LevelRepository")
-@RepositoryRestResource(path = "levels")
+@RepositoryRestResource
 public interface LevelRepository extends CrudRepository<Level, Integer> {
 	Optional<Level> findByName(String name);
 }

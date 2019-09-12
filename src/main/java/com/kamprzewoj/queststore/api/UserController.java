@@ -5,6 +5,7 @@ import com.kamprzewoj.queststore.service.UserClassService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +22,8 @@ import java.util.Optional;
 
 
 
-@RequestMapping("api/userClass")
-@RestController
+//@RequestMapping(path = "/userClass")
+@RepositoryRestController
 public class UserController {
 
 	private final UserClassService userClassService;

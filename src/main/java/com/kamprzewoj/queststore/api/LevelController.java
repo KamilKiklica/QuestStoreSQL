@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
-//@RequestMapping("/level")
+@RequestMapping(path = "level")
 @RepositoryRestController
+@RestController
 public class LevelController {
 
 	private final LevelService levelService;
