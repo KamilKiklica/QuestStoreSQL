@@ -1,7 +1,0 @@
-1. Create Mentor.
-2. Edit Mentor.
-3. Show Mentors Profile.
-4. Create New Class.
-5. Create Experience Level.
-0. Log out.
-

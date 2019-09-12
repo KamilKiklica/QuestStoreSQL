@@ -1,6 +1,0 @@
-1. Show my wallet (account balance, and my artifacts).
-2. Buy Item.
-3. Group Buying (equal donating price for all codecoolers in class).
-4. Show Experience Level.
-0. Log out.
-
