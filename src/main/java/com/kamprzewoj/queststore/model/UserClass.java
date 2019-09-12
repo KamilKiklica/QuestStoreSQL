@@ -10,15 +10,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Data
-@Entity(name = "user_class")
+@Entity(name = "user_classes")
 public class UserClass {
-
-	public UserClass(@JsonProperty("name") String name, @JsonProperty("photoUrl") String photoUrl) {
-		this.name = name;
-		this.photoUrl = photoUrl;
-	}
-
-	public UserClass() {}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,4 +22,11 @@ public class UserClass {
 
 	@NotNull
 	private String photoUrl;
+
+	public UserClass(@JsonProperty("name") String name, @JsonProperty("photoUrl") String photoUrl) {
+		this.name = name;
+		this.photoUrl = photoUrl;
+	}
+
+	public UserClass() {}
 }

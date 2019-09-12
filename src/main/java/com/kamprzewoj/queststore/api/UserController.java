@@ -1,6 +1,5 @@
 package com.kamprzewoj.queststore.api;
 
-//todo ask mentor this is bad ? I still have connection between classes
 import com.kamprzewoj.queststore.model.UserClass;
 import com.kamprzewoj.queststore.service.UserClassService;
 
@@ -10,6 +9,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
+
+//todo ask mentor RESFull api should return what if ERROR ?
+//todo GET /api/customers
+//todo GET /api/customers/1
+//todo PUT /api/customers/1  {"name": "Andrju"}  <--- edit
+//todo DELETE /api/customers/1
+//todo POST /api/customers  {"name": "Andrju"}  <--- ADD !!!
+
+
+
 
 @RequestMapping("api/userClass")
 @RestController
@@ -33,7 +43,7 @@ public class UserController {
 		return userClassService.getAllUserClasses();
 	}
 
-	@GetMapping(path = "{id}")
+	@GetMapping(path = "{id}")    //todo @GetMapping(path ="/hello/{if}, params = "text)
 	public Optional<UserClass> getUserById(@PathVariable("id") Integer id) {
 		return userClassService.getUserClassById(id);
 	}
