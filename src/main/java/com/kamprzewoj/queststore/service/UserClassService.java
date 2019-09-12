@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Service("UserClassService")
 public class UserClassService {
 
@@ -19,5 +23,9 @@ public class UserClassService {
 
 	public void addUserClass(UserClass userClass) {
 		userClassRepository.save(userClass);
+	}
+
+	public List<UserClass> getAllUserClasses() {
+		return StreamSupport.stream(userClassRepository.findAll().spliterator(), false).collect(Collectors.toList());
 	}
 }
