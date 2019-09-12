@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequestMapping("api/userClass")
 @RestController
@@ -17,7 +18,7 @@ public class UserController {
 	private final UserClassService userClassService;
 
 	@Autowired
-	public UserController(@Qualifier("UserClassService")UserClassService userClassService) {
+	public UserController(@Qualifier("UserClassService") UserClassService userClassService) {
 		this.userClassService = userClassService;
 	}
 
@@ -26,8 +27,24 @@ public class UserController {
 		userClassService.addUserClass(userClass);
 	}
 
+
 	@GetMapping
 	public List<UserClass> getAllUserClasses() {
 		return userClassService.getAllUserClasses();
+	}
+
+	@GetMapping(path = "{id}")
+	public Optional<UserClass> getUserById(@PathVariable("id") Integer id) {
+		return userClassService.getUserClassById(id);
+	}
+
+	@DeleteMapping(path = "{id}")
+	public void deleteClassUserById(@PathVariable("id") Integer id) {
+		userClassService.deleteUserClassById(id);
+	}
+
+	@PutMapping()
+	public void updateClassUserById(@RequestBody UserClass userClass) {
+		userClassService.addUserClass(userClass);
 	}
 }
