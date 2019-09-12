@@ -1,9 +1,10 @@
 package com.kamprzewoj.queststore.repository;
 
-import com.kamprzewoj.queststore.model.UserClassModel;
+import com.kamprzewoj.queststore.model.UserClass;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource
-public interface UserClassRepository extends CrudRepository<UserClassModel, Integer> {
+@Repository("UserClassRepository")
+public interface UserClassRepository extends CrudRepository<UserClass, Integer> {
 }

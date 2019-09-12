@@ -1,6 +1,6 @@
 package com.kamprzewoj.queststore;
 
-import com.kamprzewoj.queststore.model.UserClassModel;
+import com.kamprzewoj.queststore.model.UserClass;
 import com.kamprzewoj.queststore.repository.UserClassRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,9 +23,9 @@ public class QuestStoreApplication {
 				{"Advance", "http://bleble1.com"},
 		};
 		return args -> {
-			UserClassModel userClassModel1 = new UserClassModel(data[0][0], data[0][1]);
-			UserClassModel userClassModel2 = new UserClassModel(data[1][0], data[1][1]);
-			UserClassModel userClassModel3 = new UserClassModel(data[2][0], data[2][1]);
+			UserClass userClassModel1 = new UserClass(data[0][0], data[0][1]);
+			UserClass userClassModel2 = new UserClass(data[1][0], data[1][1]);
+			UserClass userClassModel3 = new UserClass(data[2][0], data[2][1]);
 			repository.save(userClassModel1);
 			repository.save(userClassModel2);
 			repository.save(userClassModel3);

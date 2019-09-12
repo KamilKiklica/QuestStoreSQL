@@ -1,5 +1,6 @@
 package com.kamprzewoj.queststore.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.springframework.lang.NonNull;
 
@@ -8,13 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
 @Data
 @Entity(name = "user_class")
-public class UserClassModel {
+public class UserClass {
 
-	public UserClassModel(String name, String photoUrl) {
+	public UserClass(@JsonProperty("name") String name, @JsonProperty("photoUrl") String photoUrl) {
 		this.name = name;
 		this.photoUrl = photoUrl;
 	}
@@ -25,6 +24,7 @@ public class UserClassModel {
 
 	@NonNull
 	private String name;
+
 	@NonNull
 	private String photoUrl;
 }
