@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 //import java.util.Optional;
 
 
-@Qualifier("UserClassRepository")
-@RepositoryRestResource
+//@Qualifier("UserClassRepository")
+//@RepositoryRestResource
+@Repository("UserClassRepository")
 public interface UserClassRepository extends CrudRepository<UserClass, Integer> {
 //	Optional<UserClass> findByNameAnd(String name);
 }

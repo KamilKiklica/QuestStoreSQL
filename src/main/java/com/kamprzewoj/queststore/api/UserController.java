@@ -3,6 +3,7 @@ package com.kamprzewoj.queststore.api;
 import com.kamprzewoj.queststore.model.UserClass;
 import com.kamprzewoj.queststore.service.UserClassService;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
@@ -21,9 +22,10 @@ import java.util.Optional;
 
 
 
-
-//@RequestMapping(path = "/userClass")
-@RepositoryRestController
+//@RepositoryRestController
+@RequestMapping(path = "/api/userClass")
+@RestController
+@Slf4j
 public class UserController {
 
 	private final UserClassService userClassService;
@@ -39,8 +41,14 @@ public class UserController {
 	}
 
 
+
 	@GetMapping
 	public List<UserClass> getAllUserClasses() {
+		log.trace("A TRACE Message");
+		log.debug("A DEBUG Message");
+		log.info("An INFO Message");
+		log.warn("A WARN Message");
+		log.error("An ERROR Message");
 		return userClassService.getAllUserClasses();
 	}
 
@@ -59,3 +67,4 @@ public class UserController {
 		userClassService.addUserClass(userClass);
 	}
 }
+
