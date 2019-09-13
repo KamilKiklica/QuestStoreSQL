@@ -4,6 +4,7 @@ import com.kamprzewoj.queststore.model.UserClass;
 import com.kamprzewoj.queststore.service.UserClassService;
 
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 
 //todo ask mentor RESFull api should return what if ERROR ?
@@ -25,7 +27,7 @@ import java.util.Optional;
 //@RepositoryRestController
 @RequestMapping(path = "/api/userClass")
 @RestController
-@Slf4j
+@Slf4j(topic = "UserController")
 public class UserController {
 
 	private final UserClassService userClassService;
@@ -44,12 +46,14 @@ public class UserController {
 
 	@GetMapping
 	public List<UserClass> getAllUserClasses() {
-		log.trace("A TRACE Message");
+		log.trace("A TRACE Message <---");
 		log.debug("A DEBUG Message");
 		log.info("An INFO Message");
 		log.warn("A WARN Message");
-		log.error("An ERROR Message");
-		return userClassService.getAllUserClasses();
+		log.error("An ERROR Message <---");
+		List<UserClass> users = userClassService.getAllUserClasses();
+		log.info(String.valueOf(users));
+		return users;
 	}
 
 	@GetMapping(path = "{id}")    //todo @GetMapping(path ="/hello/{if}, params = "text)
