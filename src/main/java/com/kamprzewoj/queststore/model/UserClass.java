@@ -13,15 +13,6 @@ import javax.validation.constraints.NotNull;
 @Entity(name = "user_class")
 public class UserClass {
 
-	//todo ask mentor why id don't show up ?
-	public UserClass(@JsonProperty("id")Integer id,	@JsonProperty("name")String name,  @JsonProperty("photoUrl") String photoUrl) {
-		this.id = id;
-		this.name = name;
-		this.photoUrl = photoUrl;
-	}
-
-	public UserClass() {}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -31,4 +22,11 @@ public class UserClass {
 
 	@NotNull
 	private String photoUrl;
+
+	public UserClass(@JsonProperty("name") String name, @JsonProperty("photoUrl") String photoUrl) {
+		this.name = name;
+		this.photoUrl = photoUrl;
+	}
+
+	public UserClass() {}
 }

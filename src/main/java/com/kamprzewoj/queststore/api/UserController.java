@@ -1,18 +1,33 @@
 package com.kamprzewoj.queststore.api;
 
-//todo ask mentor this is bad ? I still have connection between classes
 import com.kamprzewoj.queststore.model.UserClass;
 import com.kamprzewoj.queststore.service.UserClassService;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
-@RequestMapping("api/userClass")
+
+//todo ask mentor RESFull api should return what if ERROR ?
+//todo GET /api/customers
+//todo GET /api/customers/1
+//todo PUT /api/customers/1  {"name": "Andrju"}  <--- edit
+//todo DELETE /api/customers/1
+//todo POST /api/customers  {"name": "Andrju"}  <--- ADD !!!
+
+
+
+//@RepositoryRestController
+@RequestMapping(path = "/api/userClass")
 @RestController
+@Slf4j(topic = "UserController")
 public class UserController {
 
 	private final UserClassService userClassService;
@@ -28,12 +43,20 @@ public class UserController {
 	}
 
 
+
 	@GetMapping
 	public List<UserClass> getAllUserClasses() {
-		return userClassService.getAllUserClasses();
+		log.trace("A TRACE Message <---");
+		log.debug("A DEBUG Message");
+		log.info("An INFO Message");
+		log.warn("A WARN Message");
+		log.error("An ERROR Message <---");
+		List<UserClass> users = userClassService.getAllUserClasses();
+		log.info(String.valueOf(users));
+		return users;
 	}
 
-	@GetMapping(path = "{id}")
+	@GetMapping(path = "{id}")    //todo @GetMapping(path ="/hello/{if}, params = "text)
 	public Optional<UserClass> getUserById(@PathVariable("id") Integer id) {
 		return userClassService.getUserClassById(id);
 	}
@@ -48,3 +71,4 @@ public class UserController {
 		userClassService.addUserClass(userClass);
 	}
 }
+
