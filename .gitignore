@@ -9,8 +9,11 @@ target/
 *.iws
 *.iml
 *.ipr
-#!/spring-boot-log.log
-#spring-boot-log.log
+
+
+!/spring-boot-log.log
+spring-boot-log.log
+
 
 #1spring-boot-log.log
 #src/main/java/com/kamprzewoj/queststore/view/
