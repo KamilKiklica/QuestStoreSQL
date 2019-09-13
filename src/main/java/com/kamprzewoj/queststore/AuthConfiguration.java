@@ -28,9 +28,12 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
-				.anyRequest().authenticated()
+				.antMatchers("/api/userClass/").hasAnyRole("creepy", "user")
+				.antMatchers("/api").hasRole("creepy")
+//				.anyRequest().authenticated()
 				.and()
 				.httpBasic();
+
 	}
 
 	@Bean
