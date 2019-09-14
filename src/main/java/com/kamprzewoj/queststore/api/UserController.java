@@ -4,15 +4,15 @@ import com.kamprzewoj.queststore.model.UserClass;
 import com.kamprzewoj.queststore.service.UserClassService;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.rest.webmvc.RepositoryRestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 
 //todo ask mentor RESFull api should return what if ERROR ?
@@ -23,11 +23,11 @@ import java.util.logging.Logger;
 //todo POST /api/customers  {"name": "Andrju"}  <--- ADD !!!
 
 
-
 //@RepositoryRestController
+
+@Slf4j(topic = "UserController --->")
 @RequestMapping(path = "/UserClass")
 @RestController
-@Slf4j(topic = "UserController")
 public class UserController {
 
 	private final UserClassService userClassService;
@@ -37,29 +37,44 @@ public class UserController {
 		this.userClassService = userClassService;
 	}
 
+//	@PostMapping(path= "/", consumes = "application/json", produces = "application/json")
+//@RequestMapping(value = "/products", method = RequestMethod.POST)
+//public ResponseEntity<Object> createProduct(@RequestBody Product product) {
+//	productRepo.put(product.getId(), product);
+//	return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);
+//}
+
 	@PostMapping
-	public void addUserClass(@RequestBody UserClass userClass) {
+	public void addUserClass(@Valid @RequestBody UserClass userClass) {
+		log.info(userClass.toString());
 		userClassService.addUserClass(userClass);
 	}
 
 
 
 	@GetMapping
-	public List<UserClass> getAllUserClasses() {
-		log.trace("A TRACE Message <---");
-		log.debug("A DEBUG Message");
+	public ResponseEntity<List<UserClass>> getAllUserClasses() {
 		log.info("An INFO Message");
 		log.warn("A WARN Message");
 		log.error("An ERROR Message <---");
 		List<UserClass> users = userClassService.getAllUserClasses();
 		log.info(String.valueOf(users));
-		return users;
+		return new ResponseEntity<>(users, HttpStatus.OK);
+//		return users;
 	}
 
+//	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(path = "{id}")    //todo @GetMapping(path ="/hello/{if}, params = "text)
-	public Optional<UserClass> getUserById(@PathVariable("id") Integer id) {
-		return userClassService.getUserClassById(id);
+	public ResponseEntity<Optional<UserClass>> getUserById(@PathVariable("id") Integer id) {
+//		return userClassService.getUserClassById(id);
+		return new ResponseEntity<>(userClassService.getUserClassById(id),
+				(userClassService.getUserClassById(id).isEmpty())? HttpStatus.BAD_REQUEST: HttpStatus.OK);
 	}
+
+//	@GetMapping(path = "{id}")    //todo @GetMapping(path ="/hello/{if}, params = "text)
+//	public Optional<UserClass> getUserById(@PathVariable("id") Integer id) {
+//		return userClassService.getUserClassById(id);
+//	}
 
 	@DeleteMapping(path = "{id}")
 	public void deleteClassUserById(@PathVariable("id") Integer id) {
@@ -71,4 +86,3 @@ public class UserController {
 		userClassService.addUserClass(userClass);
 	}
 }
-

@@ -3,6 +3,7 @@ package com.kamprzewoj.queststore.service;
 import com.kamprzewoj.queststore.model.UserClass;
 import com.kamprzewoj.queststore.repository.UserClassRepository;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -12,8 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-//TODO ASK MENTOR make interface ?
-
+@Slf4j(topic = "UserClassService")
 @Service("UserClassService")
 public class UserClassService {
 
@@ -26,7 +26,8 @@ public class UserClassService {
 
 	//todo return 1/true if success
 	public void addUserClass(UserClass userClass) {
-		userClassRepository.save(userClass);
+		UserClass i = userClassRepository.save(userClass);
+		log.info(i.toString() + " <-------");
 	}
 
 	public List<UserClass> getAllUserClasses() {
