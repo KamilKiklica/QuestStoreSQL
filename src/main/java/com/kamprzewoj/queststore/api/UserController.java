@@ -25,7 +25,7 @@ import java.util.Optional;
 
 //@RepositoryRestController
 
-//@CrossOrigin(origins = "http://localhost", maxAge = 3600)
+//@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 @Slf4j(topic = "UserController --->")
 @RequestMapping(path = "/UserClass")
 @RestController
@@ -44,7 +44,7 @@ public class UserController {
 //	productRepo.put(product.getId(), product);
 //	return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);
 //}
-
+//@RequestParam(name = "name", required = false, defaultValue = "")String name
 	@PostMapping
 	public void addUserClass(@Valid @RequestBody UserClass userClass) {
 		log.info(userClass.toString());

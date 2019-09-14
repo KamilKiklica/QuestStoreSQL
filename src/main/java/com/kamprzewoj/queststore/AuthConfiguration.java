@@ -53,8 +53,8 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
 //				.and()
 //				.httpBasic();
 		http
-//				.cors()
-//				.and()
+				.cors()
+				.and()
 				.csrf().disable()
 				.authorizeRequests()
 				.anyRequest().authenticated()
