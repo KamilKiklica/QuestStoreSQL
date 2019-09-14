@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 
 
 //@RepositoryRestController
-@RequestMapping(path = "/api/userClass")
+@RequestMapping(path = "/UserClass")
 @RestController
 @Slf4j(topic = "UserController")
 public class UserController {
