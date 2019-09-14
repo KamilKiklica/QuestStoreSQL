@@ -1,6 +1,7 @@
 package com.kamprzewoj.queststore.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.validation.annotation.Validated;
 
@@ -19,6 +20,7 @@ import javax.validation.constraints.NotNull;
 @Entity(name = "user_class")
 public class UserClass {
 
+//	@JsonIgnore
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;

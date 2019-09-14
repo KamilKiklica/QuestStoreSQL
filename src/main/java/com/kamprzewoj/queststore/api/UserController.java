@@ -25,6 +25,7 @@ import java.util.Optional;
 
 //@RepositoryRestController
 
+//@CrossOrigin(origins = "http://localhost", maxAge = 3600)
 @Slf4j(topic = "UserController --->")
 @RequestMapping(path = "/UserClass")
 @RestController

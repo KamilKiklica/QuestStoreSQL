@@ -1,6 +1,6 @@
 package com.kamprzewoj.queststore;
 
-import org.springframework.context.support.DefaultMessageSourceResolvable;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
+@Slf4j(topic = "CustomGlobalExceptionHandler --->")
 @ControllerAdvice
 public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -27,14 +29,14 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 		Map<String, Object> body = new LinkedHashMap<>();
 		body.put("timestamp", new Date());
 		body.put("status", status.value());
-
+		log.info("test ");
 		//Get all errors
-		List<String> errors = ex.getBindingResult()
-				.getFieldErrors()
-				.stream()
-				.map(DefaultMessageSourceResolvable::getDefaultMessage)
-				.collect(Collectors.toList());
-		body.put("errors", errors);
+//		List<String> errors = ex.getBindingResult()
+//				.getFieldErrors()
+//				.stream()
+//				.map(x -> x.getDefaultMessage())
+//				.collect(Collectors.toList());
+//		body.put("errors", errors);
 		return new ResponseEntity<>(body, headers, status);
 	}
 
