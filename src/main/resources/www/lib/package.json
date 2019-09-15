@@ -1,0 +1,8 @@
+{
+  "name": "lib",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "react-router-dom": "^5.0.1"
+  }
+}
